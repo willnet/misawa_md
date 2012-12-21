@@ -6,7 +6,7 @@ var search = function(word, func) {
       q: word,
       start: offset,
       wt: 'json'
-    }
+    };
     $.ajax({
       url: url,
       method: 'GET',

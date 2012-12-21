@@ -24,7 +24,6 @@ $(function() {
     clean_list();
     
     $.getJSON('data.json', function(data) {
-      clean_list();
       images = data;
       $.each(data, add_to_list);
     });
