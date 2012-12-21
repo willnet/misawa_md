@@ -25,7 +25,7 @@ $(function() {
     
     $.getJSON('data.json', function(data) {
       images = data;
-      $.each(data, add_to_list);
+      $.each(data.slice(0, 20), add_to_list);
     });
   };
   
