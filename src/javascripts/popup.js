@@ -1,8 +1,5 @@
 $(function() {
   
-  /// デフォルト画像リスト
-  var images;  
-  
   // リストを初期化
   function clean_list() {
     $("#images").html("");
@@ -24,7 +21,6 @@ $(function() {
     clean_list();
     
     $.getJSON('data.json', function(data) {
-      images = data;
       $.each(data.slice(0, 20), add_to_list);
     });
   };
