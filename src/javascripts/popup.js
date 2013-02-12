@@ -1,4 +1,5 @@
 $(function() {
+  var per_page = 20;
   
   // リストを初期化
   function clean_list() {
@@ -21,11 +22,12 @@ $(function() {
     clean_list();
     
     $.getJSON('data.json', function(data) {
-      $.each(data.slice(0, 20), add_to_list);
+      $.each(data.slice(0, per_page), add_to_list);
+      add_paginate(data, 1);
     });
   };
   
-  
+
   /// リストに画像を登録します。
   /// @param key 画像のキー
   /// @param val 画像のURL
@@ -50,6 +52,17 @@ $(function() {
     
     clean_list();
     chrome.extension.getBackgroundPage().search(keyword, add_to_list);
+  };
+  
+  function add_pagenate(data, page) {
+    var count = data.length;
+    var total_page = 1;
+    
+    if (count > 0) {
+      total_page = ((count - 1) / per_page) + 1;
+    }
+
+    $('#paginate').append();
   };
   
   
